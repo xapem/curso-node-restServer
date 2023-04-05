@@ -113,6 +113,7 @@ const usersPut = async (req, res = response) => {
 const usersDelete = async (req, res = response) => {
 
     const {id} = req.params
+    // const uid = req.uid
 
     //Fisicamente lo borramos
     // const user = await User.findByIdAndDelete(id)
@@ -122,11 +123,10 @@ const usersDelete = async (req, res = response) => {
     //     id
     // })
 
-    const user = await User.findByIdAndUpdate(id, {estado: false})
+    const user = await User.findByIdAndUpdate(id, { estado: false })
+    // const userAuth = req.user
 
-    res.json({
-        user
-    })
+    res.json(user)
 }
 
 const usersPatch = (req, res = response) => {
