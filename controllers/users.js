@@ -123,7 +123,7 @@ const usersDelete = async (req, res = response) => {
     //     id
     // })
 
-    const user = await User.findByIdAndUpdate(id, { estado: false })
+    const user = await User.findByIdAndUpdate(id, { estado: false }, {new: true})
     // const userAuth = req.user
 
     res.json(user)
