@@ -50,11 +50,21 @@ const existNameProduct = async ( nombre = '' ) => {
     }
 }
 
+const allowCollections = ( collection = '', collecionts = []) => {
+
+    const include = collecionts.includes( collection )
+    if( !include ) {
+        throw new Error(`La extension ${collection} no es permitida, ${collecionts}`)
+    }
+    return true
+}
+
 module.exports = {
     esRolValido,
     emailExiste,
     existUserById,
     existCategoryById,
     existProductById,
-    existNameProduct
+    existNameProduct,
+    allowCollections
 }
